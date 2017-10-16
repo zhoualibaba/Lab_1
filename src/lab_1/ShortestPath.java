@@ -7,7 +7,7 @@ import lab_1.digraph.VNode;
 
 import lab_1.GraphViz;
 import lab_1.showDirectedGraph;
-
+// 1
 public class ShortestPath {
 	static VNode mVexs[] = digraph.mVexs;
 	static int vlen = mVexs.length;
