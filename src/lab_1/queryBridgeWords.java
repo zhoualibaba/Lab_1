@@ -4,7 +4,7 @@ import lab_1.digraph;
 import lab_1.digraph.ENode;
 import lab_1.digraph.VNode;
 
-
+// 3
 public class queryBridgeWords {
 	// �ŽӴʲ�ѯ
 	static VNode mVexs[] = digraph.mVexs;

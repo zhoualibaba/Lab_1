@@ -16,6 +16,7 @@ import lab_1.showDirectedGraph;
 
 // C:/Users/zhou/Desktop/test.txt
 // 12345
+// 3
 public class lab1 {
 
 	public static void main(String[] args) throws Exception {
