@@ -17,6 +17,7 @@ import lab_1.showDirectedGraph;
 // C:/Users/zhou/Desktop/test.txt
 // 12345
 <<<<<<< HEAD
+<<<<<<< HEAD
 // 3
 =======
 <<<<<<< HEAD
@@ -25,6 +26,9 @@ import lab_1.showDirectedGraph;
 // 1
 >>>>>>> C4
 >>>>>>> B1
+=======
+// 6
+>>>>>>> zas
 public class lab1 {
 
 	public static void main(String[] args) throws Exception {
