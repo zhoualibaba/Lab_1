@@ -16,7 +16,15 @@ import lab_1.showDirectedGraph;
 
 // C:/Users/zhou/Desktop/test.txt
 // 12345
+<<<<<<< HEAD
 // 3
+=======
+<<<<<<< HEAD
+// 2
+=======
+// 1
+>>>>>>> C4
+>>>>>>> B1
 public class lab1 {
 
 	public static void main(String[] args) throws Exception {
