@@ -8,7 +8,7 @@ import lab_1.digraph;
 import lab_1.digraph.VNode;
 import lab_1.digraph.ENode;
 
-
+// 2
 public class randomWalk {
 	public static String randomw() {
 		Walk walk = new Walk();
