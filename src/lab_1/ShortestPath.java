@@ -1,25 +1,20 @@
 package lab_1;
 
-import lab_1.digraph;
-import lab_1.digraph.ENode;
-import lab_1.digraph.VNode;
-
-
-import lab_1.GraphViz;
-import lab_1.showDirectedGraph;
+import lab_1.Digraph.ENode;
+import lab_1.Digraph.VNode;
 
 public class ShortestPath {
-    static VNode mVexs[] = digraph.mVexs;
+    static VNode mVexs[] = Digraph.mVexs;
     static int vlen = mVexs.length;
     static int minlen[] = new int[vlen];
     static int visited[] = new int[vlen];
     static int Max_weight = 1000;
     static int path[][];
-    private static GraphViz gv = showDirectedGraph.gv;
+    private static GraphViz gv = ShowDirectedGraph.gv;
 
-    public static int[][] Path(String word) {
+    public static int[][] getPath(String word) {
         int path[][] = new int[vlen][vlen];
-        int p = digraph.getPosition(word);
+        int p = Digraph.getPosition(word);
 
         for (int i = 0; i < vlen; i++) {
             minlen[i] = Max_weight;
@@ -70,16 +65,16 @@ public class ShortestPath {
 
     public static String calcShortestPath(String word) {
         String result = null;
-        int p1 = digraph.getPosition(word);
+        int p1 = Digraph.getPosition(word);
         if (p1 != -1) {
-            path = Path(word);
+            path = getPath(word);
             for (int i = 0; i < vlen; i++) {
                 if (i != p1) {
                     result = result + word + "->" + mVexs[i].data + ": " + minlen[i] + "\n";
                     shortpath(p1, i);
                 }
             }
-            showDirectedGraph.show("b");
+            ShowDirectedGraph.show("b");
 
         } else {
             result = "no " + word + " in this graph";
@@ -106,16 +101,16 @@ public class ShortestPath {
     public static String calcShortestPath(String word1, String word2) {
 
 
-        int p1 = digraph.getPosition(word1);
-        int p2 = digraph.getPosition(word2);
+        int p1 = Digraph.getPosition(word1);
+        int p2 = Digraph.getPosition(word2);
 
         String result = "";
 
         if (p1 != -1 && p2 != -1) {
-            path = Path(word1);
+            path = getPath(word1);
             shortpath(p1, p2);
             result = word1 + "->" + word2 + ": " + minlen[p2];
-            showDirectedGraph.show("b");
+            ShowDirectedGraph.show("b");
         } else if (p1 == -1 && p2 != -1) {
             result = "no " + word1 + " in this graph";
         } else if (p1 != -1 && p2 == -1) {

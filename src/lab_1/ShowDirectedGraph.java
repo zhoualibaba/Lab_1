@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import lab_1.digraph.ENode;
-import lab_1.digraph.VNode;
+import lab_1.Digraph.ENode;
+import lab_1.Digraph.VNode;
 
-public class showDirectedGraph {
+public class ShowDirectedGraph {
     static GraphViz gv = new GraphViz();
 
     public static void showGraph(VNode mVexs[]) throws IOException {

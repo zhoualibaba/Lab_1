@@ -15,7 +15,7 @@ import java.util.Scanner;
 /**
  * This is a java doc comment.
  */
-public class lab1 {
+public class Lab1 {
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
         String txt_name;                        // 文件名
@@ -56,8 +56,8 @@ public class lab1 {
             System.err.println("FileStreamsTest: " + e);
         }
 
-        digraph solutiondigraph = new digraph(txt_word);
-        showDirectedGraph.showGraph(digraph.mVexs);
+        Digraph solutiondigraph = new Digraph(txt_word);
+        ShowDirectedGraph.showGraph(Digraph.mVexs);
         catalog();                        // 显示目录
         int choose = sc.nextInt();        // 功能选择
         String blank = sc.nextLine();
@@ -68,20 +68,20 @@ public class lab1 {
         while (choose != overFlag) {
             switch (choose) {
                 case 1:        // 展示有向图
-                    showDirectedGraph.show();
+                    ShowDirectedGraph.show();
                     //	solutiondigraph.print();
                     break;
                 case 2:        // 查询桥接词
                     System.out.println("请输入要查询的桥接词：");
                     String word1 = sc.nextLine();
                     String word2 = sc.nextLine();
-                    String word = queryBridgeWords.BridgeWords(word1, word2);
+                    String word = QueryBridgeWords.bridgeWords(word1, word2);
                     System.out.println(word);
                     break;
                 case 3:        // 根据桥接词生成新文本
                     System.out.println("请输入要添加桥接词的文本");
                     String inputText = sc.nextLine();
-                    String new_text = generateNewText.newtext(inputText);
+                    String new_text = GenerateNewText.newtext(inputText);
                     System.out.println(new_text);
                     break;
                 case 4:        // 计算最短路径
@@ -102,7 +102,7 @@ public class lab1 {
                     //System.out.println(w1+w2);
                     break;
                 case 5:        // 随机遍历
-                    String randomwalk = randomWalk.randomw();
+                    String randomwalk = RandomWalk.randomw();
                     System.out.println(randomwalk);
                     break;
             }

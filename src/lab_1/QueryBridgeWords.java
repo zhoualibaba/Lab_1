@@ -1,19 +1,18 @@
 package lab_1;
 
-import lab_1.digraph;
-import lab_1.digraph.ENode;
-import lab_1.digraph.VNode;
+import lab_1.Digraph.ENode;
+import lab_1.Digraph.VNode;
 
-public class queryBridgeWords {
+public class QueryBridgeWords {
     // �ŽӴʲ�ѯ
-    static VNode mVexs[] = digraph.mVexs;
+    static VNode mVexs[] = Digraph.mVexs;
 
     public static String getBridgeWords(String word1, String word2) {
         word1 = word1.toLowerCase();
         word2 = word2.toLowerCase();
 
-        int p1 = digraph.getPosition(word1);
-        int p2 = digraph.getPosition(word2);
+        int p1 = Digraph.getPosition(word1);
+        int p2 = Digraph.getPosition(word2);
 
         String bridge = "";
         if (p1 >= 0 && p2 >= 0) {
@@ -37,19 +36,19 @@ public class queryBridgeWords {
     }
 
 
-    public static String BridgeWords(String word1, String word2) {
+    public static String bridgeWords(String word1, String word2) {
 
         word1 = word1.toLowerCase();
         word2 = word2.toLowerCase();
 
-        int p1 = digraph.getPosition(word1);
-        int p2 = digraph.getPosition(word2);
+        int p1 = Digraph.getPosition(word1);
+        int p2 = Digraph.getPosition(word2);
 
         String bridge = getBridgeWords(word1, word2);
         if (p1 >= 0 && p2 >= 0) {
 
             String bridgelist[] = getbridgeword(bridge);
-            if (bridge == "") {
+            if (bridge.equals("")) {
                 bridge = "No bridge words from \"" + word1 + "\" to \"" + word2 + "\"!";
             } else if (bridgelist.length == 1) {
                 bridge = "The bridge words from \"" + word1 + "\" to \"" + word2 + "\" is: " + bridgelist[0];

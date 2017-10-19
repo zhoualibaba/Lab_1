@@ -1,8 +1,6 @@
 package lab_1;
 
-import lab_1.queryBridgeWords;
-
-public class generateNewText {
+public class GenerateNewText {
 
     public static String newtext(String inputText) {
         // 根据桥接词补充文本
@@ -17,8 +15,8 @@ public class generateNewText {
             String word1 = text_word[i];
             String word2 = text_word[i + 1];
 
-            String bridgeword = queryBridgeWords.getBridgeWords(word1, word2);
-            String firstword[] = queryBridgeWords.getbridgeword(bridgeword);
+            String bridgeword = QueryBridgeWords.getBridgeWords(word1, word2);
+            String firstword[] = QueryBridgeWords.getbridgeword(bridgeword);
             int randomnum = (int) (Math.random() * firstword.length);
             if (firstword[randomnum].length() == 0) {
                 new_text = new_text + " " + word2;

@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.lang.Runnable;
 import java.lang.Thread;
 
-import lab_1.digraph;
-import lab_1.digraph.VNode;
-import lab_1.digraph.ENode;
+import lab_1.Digraph.VNode;
+import lab_1.Digraph.ENode;
 
-public class randomWalk {
+public class RandomWalk {
     public static String randomw() {
         Walk walk = new Walk();
         // 两个线程来实现用户停止
@@ -41,7 +40,7 @@ class Walk implements Runnable {
         stop = new Thread(this);
     }
 
-    VNode[] mVexs = digraph.mVexs;  // 有向图的邻接表
+    VNode[] mVexs = Digraph.mVexs;  // 有向图的邻接表
 
     public void run() {
 

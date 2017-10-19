@@ -1,6 +1,6 @@
 package lab_1;
 
-public class digraph {
+public class Digraph {
     //Graph<int> a = new Graph();
     // 边
     public class ENode {
@@ -20,7 +20,7 @@ public class digraph {
     public static VNode[] mVexs; // 邻接表
 
     // 构建邻接表
-    public digraph(String S[]) {
+    public Digraph(String S[]) {
 
         String vexs[] = new String[1000];
         String edges[][] = new String[1000][2];
