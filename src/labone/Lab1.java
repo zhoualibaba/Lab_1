@@ -1,3 +1,5 @@
+
+
 /**
  * This is a package-info.java
  *
@@ -6,15 +8,13 @@
 
 package labone;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 /**
  * This is a java doc comment.
  */
+@SuppressWarnings("CheckStyle")
 public final class Lab1 {
     /**
      * This is a java doc comment.
@@ -35,11 +35,12 @@ public final class Lab1 {
         final int length = 10000;
         String[] txtWord = new String[length]; // 文本文档单词
         char txtChar; // 文本文档字符
-
-        System.out.println("Please imput your txt name:");
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(System.out, true);
+        out.println("Please input your txt name:");
         Scanner sc = new Scanner(System.in);
-        txtName = sc.nextLine();
-        System.out.println(txtName); // 获取文件名
+        txtName = in.readLine();
+        out.println(txtName);		// 获取文件名
 
         try { // 文本处理
             File inFile = new File(txtName);
@@ -59,7 +60,7 @@ public final class Lab1 {
                 character = reader.read();
             }
             txtWord = txtTest.split(" ");
-            System.out.println(txtTest);
+            out.println(txtTest);
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("FileStreamsTest: " + e);
@@ -70,11 +71,11 @@ public final class Lab1 {
         Digraph solutiondigraph = new Digraph(txtWord);
         ShowDirectedGraph.showGraph(Digraph.mVexs);
         catalog(); // 显示目录
-        int choose = sc.nextInt(); // 功能选择
-        String blank = sc.nextLine();
+        int choose = in.read() - '0'; // 功能选择
+        in.read();
         final int overFlag = 9;
         if (choose == overFlag) {
-            System.out.println("程序结束");
+            out.println("程序结束");
         }
         while (choose != overFlag) {
             switch (choose) {
@@ -84,46 +85,44 @@ public final class Lab1 {
                     break;
                 case 2: // 查询桥接词
                     System.out.println("请输入要查询的桥接词：");
-                    String word1 = sc.nextLine();
-                    String word2 = sc.nextLine();
+                    String word1 = in.readLine();
+                    String word2 = in.readLine();
                     String word = QueryBridgeWords.bridgeWords(word1, word2);
-                    System.out.println(word);
+                    out.println(word);
                     break;
                 case 3: // 根据桥接词生成新文本
                     System.out.println("请输入要添加桥接词的文本");
-                    String inputText = sc.nextLine();
+                    String inputText = in.readLine();
                     String newText = GenerateNewText.newtext(inputText);
-                    System.out.println(newText);
+                    out.println(newText);
                     break;
                 case 4: // 计算最短路径
                     System.out.println("请输入要查询的单词：");
+                    System.out.print("start:");
+                    String w1 = in.readLine();
                     System.out.print("star:");
-                    String w1 = sc.nextLine();
-                    System.out.print("stop:");
-                    String w2 = sc.nextLine();
+                    String w2 = in.readLine();
                     if (w2.equals("")) {
                         String w = ShortestPath.calcShortestPath(w1);
 
-                        System.out.println(w);
+                        out.println(w);
                     } else {
                         String w = ShortestPath.calcShortestPath(w1, w2);
 
-                        System.out.println(w);
+                        out.println(w);
                     }
-                    //System.out.println(w1+w2);
                     break;
                 case 5: // 随机遍历
                     String randomwalk = RandomWalk.randomw();
-                    System.out.println(randomwalk);
+                    out.println(randomwalk);
                     break;
                 default:
                     break;
             }
             catalog();
-            choose = sc.nextInt();
-            blank = sc.nextLine();
+            choose = in.read() - '0';
             if (choose == overFlag) {
-                System.out.println("程序结束");
+                out.println("程序结束");
             }
         }
 
