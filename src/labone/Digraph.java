@@ -1,48 +1,82 @@
-package lab_1;
+package labone;
 
+/**
+ * Java Doc.
+ */
 public class Digraph {
+
     //Graph<int> a = new Graph();
     // 边
+    /**
+     * Java Doc.
+     */
     public class ENode {
+        /**
+         * Java Doc.
+         */
         int ivex;    // 指向顶点
+        /**
+         * Java Doc.
+         */
         int weight;  // 权值
+        /**
+         * Java Doc.
+         */
         ENode nextEdge;
     }
 
     // 顶点
+    /**
+     * Java Doc.
+     */
     public class VNode {
+        /**
+         * Java Doc.
+         */
         String data;
+        /**
+         * Java Doc.
+         */
         int total;
+        /**
+         * Java Doc.
+         */
         ENode firstEdge;
     }
 
-
+    /**
+     * Java Doc.
+     */
     public static VNode[] mVexs; // 邻接表
 
     // 构建邻接表
-    public Digraph(String S[]) {
+    /**
+     * Java Doc.
+     * @param s description
+     */
+    public Digraph(final String[] s) {
+        final int length = 1000;
+        String[] vexs = new String[length];
+        String[][] edges = new String[length][2];
 
-        String vexs[] = new String[1000];
-        String edges[][] = new String[1000][2];
-
-        int slen = S.length;
+        int slen = s.length;
         int vlen = 0;
         int elen = 0;
         int flag = 0;
         for (int i = 0; i < slen - 1; i++) {
-            edges[i][0] = S[i];
-            edges[i][1] = S[i + 1];
+            edges[i][0] = s[i];
+            edges[i][1] = s[i + 1];
             elen++;
         }
         for (int i = 0; i < slen; i++) {
             flag = 0;
             for (int j = 0; j < vlen; j++) {
-                if (vexs[j].equals(S[i])) {
+                if (vexs[j].equals(s[i])) {
                     flag = 1;
                 }
             }
             if (flag == 0) {
-                vexs[vlen] = S[i];
+                vexs[vlen] = s[i];
                 vlen++;
             }
         }
@@ -75,7 +109,12 @@ public class Digraph {
     }
 
     // 返回顶点的位置
-    public static int getPosition(String s) {
+    /**
+     * Java Doc.
+     * @return a
+     * @param s d
+     */
+    public static int getPosition(final String s) {
         for (int i = 0; i < mVexs.length; i++) {
             if (mVexs[i].data.equals(s)) {
                 return i;
@@ -85,7 +124,13 @@ public class Digraph {
     }
 
     // 添加边
-    private void addEdge(int p1, int p2) {
+
+    /**
+     * a.
+     * @param p1 a
+     * @param p2 a
+     */
+    private void addEdge(final int p1, final int p2) {
 
         // 初始化边
         ENode node2 = new ENode();

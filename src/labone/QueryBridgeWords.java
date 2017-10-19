@@ -1,12 +1,31 @@
-package lab_1;
+package labone;
 
-import lab_1.Digraph.ENode;
-import lab_1.Digraph.VNode;
+import labone.Digraph.ENode;
+import labone.Digraph.VNode;
 
-public class QueryBridgeWords {
+/**
+ * This is a java doc comment.
+ */
+public final class QueryBridgeWords {
+    /**
+     * This is a java doc comment.
+     */
+    private QueryBridgeWords() {
+    }
+
     // 桥接词查询
-    static VNode mVexs[] = Digraph.mVexs;
+    /**
+     * This is a java doc comment.
+     */
+    static VNode[] mVexs = Digraph.mVexs;
 
+    /**
+     * d.
+     *
+     * @param word1 a
+     * @param word2 a
+     * @return a
+     */
     public static String getBridgeWords(String word1, String word2) {
         word1 = word1.toLowerCase();
         word2 = word2.toLowerCase();
@@ -35,7 +54,12 @@ public class QueryBridgeWords {
         return bridge;
     }
 
-
+    /**
+     * 1.
+     * @param word1 1
+     * @param word2 1
+     * @return 1
+     */
     public static String bridgeWords(String word1, String word2) {
 
         word1 = word1.toLowerCase();
@@ -47,13 +71,16 @@ public class QueryBridgeWords {
         String bridge = getBridgeWords(word1, word2);
         if (p1 >= 0 && p2 >= 0) {
 
-            String bridgelist[] = getbridgeword(bridge);
+            String[] bridgelist = getbridgeword(bridge);
             if (bridge.equals("")) {
-                bridge = "No bridge words from \"" + word1 + "\" to \"" + word2 + "\"!";
+                bridge = "No bridge words from \"" + word1
+                        + "\" to \"" + word2 + "\"!";
             } else if (bridgelist.length == 1) {
-                bridge = "The bridge words from \"" + word1 + "\" to \"" + word2 + "\" is: " + bridgelist[0];
+                bridge = "The bridge words from \"" + word1 + "\" to \""
+                        + word2 + "\" is: " + bridgelist[0];
             } else {
-                bridge = "The bridge words from \"" + word1 + "\" to \"" + word2 + "\" are: ";
+                bridge = "The bridge words from \"" + word1 + "\" to \""
+                        + word2 + "\" are: ";
                 for (int i = 0; i < bridgelist.length; i++) {
                     bridge += bridgelist[i] + " ";
                 }
@@ -70,9 +97,15 @@ public class QueryBridgeWords {
     }
 
     // 切割生成桥接词字符串数组
-    public static String[] getbridgeword(String bridgeword) {
 
-        String bridges[] = new String[1000];
+    /**
+     * d.
+     * @param bridgeword 1
+     * @return 1
+     */
+    public static String[] getbridgeword(final String bridgeword) {
+        final int length = 1000;
+        String[] bridges = new String[length];
         bridges = bridgeword.split(" ");
         return bridges;
     }

@@ -3,8 +3,8 @@
  *
  * @author somebody
  */
-package lab_1;
 
+package labone;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,40 +15,51 @@ import java.util.Scanner;
 /**
  * This is a java doc comment.
  */
-public class Lab1 {
-    public static void main(String[] args) throws Exception {
+public final class Lab1 {
+    /**
+     * This is a java doc comment.
+     */
+    private Lab1() {
+    }
+
+    /**
+     * COMMENT.
+     *
+     * @param args a
+     * @throws Exception a
+     */
+    public static void main(final String[] args) throws Exception {
         // TODO Auto-generated method stub
-        String txt_name;                        // 文件名
-        String txt_test = "";                    // 文本文档数据
+        String txtName; // 文件名
+        String txtTest = ""; // 文本文档数据
         final int length = 10000;
-        String[] txt_word = new String[length];    // 文本文档单词
-        char txt_char;                            // 文本文档字符
+        String[] txtWord = new String[length]; // 文本文档单词
+        char txtChar; // 文本文档字符
 
         System.out.println("Please imput your txt name:");
         Scanner sc = new Scanner(System.in);
-        txt_name = sc.nextLine();
-        System.out.println(txt_name);            // 获取文件名
+        txtName = sc.nextLine();
+        System.out.println(txtName); // 获取文件名
 
-
-        try {     // 文本处理
-            File inFile = new File(txt_name);
+        try { // 文本处理
+            File inFile = new File(txtName);
             FileReader reader = new FileReader(inFile);
             int character = reader.read();
             while (character != -1) {
                 //txt_test += (char)character;
-                txt_char = (char) character;
-                txt_char = Character.toLowerCase(txt_char);
-                if (txt_char >= 'a' && txt_char <= 'z') {
-                    txt_test += txt_char;
+                txtChar = (char) character;
+                txtChar = Character.toLowerCase(txtChar);
+                if (txtChar >= 'a' && txtChar <= 'z') {
+                    txtTest += txtChar;
                 } else {
-                    if (txt_test.charAt(txt_test.length() - 1) != ' ') {
-                        txt_test += ' ';
+                    if (txtTest.charAt(txtTest.length() - 1) != ' ') {
+                        txtTest += ' ';
                     }
                 }
                 character = reader.read();
             }
-            txt_word = txt_test.split(" ");
-            System.out.println(txt_test);
+            txtWord = txtTest.split(" ");
+            System.out.println(txtTest);
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("FileStreamsTest: " + e);
@@ -56,10 +67,10 @@ public class Lab1 {
             System.err.println("FileStreamsTest: " + e);
         }
 
-        Digraph solutiondigraph = new Digraph(txt_word);
+        Digraph solutiondigraph = new Digraph(txtWord);
         ShowDirectedGraph.showGraph(Digraph.mVexs);
-        catalog();                        // 显示目录
-        int choose = sc.nextInt();        // 功能选择
+        catalog(); // 显示目录
+        int choose = sc.nextInt(); // 功能选择
         String blank = sc.nextLine();
         final int overFlag = 9;
         if (choose == overFlag) {
@@ -67,24 +78,24 @@ public class Lab1 {
         }
         while (choose != overFlag) {
             switch (choose) {
-                case 1:        // 展示有向图
+                case 1: // 展示有向图
                     ShowDirectedGraph.show();
-                    //	solutiondigraph.print();
+                    // solutiondigraph.print();
                     break;
-                case 2:        // 查询桥接词
+                case 2: // 查询桥接词
                     System.out.println("请输入要查询的桥接词：");
                     String word1 = sc.nextLine();
                     String word2 = sc.nextLine();
                     String word = QueryBridgeWords.bridgeWords(word1, word2);
                     System.out.println(word);
                     break;
-                case 3:        // 根据桥接词生成新文本
+                case 3: // 根据桥接词生成新文本
                     System.out.println("请输入要添加桥接词的文本");
                     String inputText = sc.nextLine();
-                    String new_text = GenerateNewText.newtext(inputText);
-                    System.out.println(new_text);
+                    String newText = GenerateNewText.newtext(inputText);
+                    System.out.println(newText);
                     break;
-                case 4:        // 计算最短路径
+                case 4: // 计算最短路径
                     System.out.println("请输入要查询的单词：");
                     System.out.print("star:");
                     String w1 = sc.nextLine();
@@ -101,15 +112,17 @@ public class Lab1 {
                     }
                     //System.out.println(w1+w2);
                     break;
-                case 5:        // 随机遍历
+                case 5: // 随机遍历
                     String randomwalk = RandomWalk.randomw();
                     System.out.println(randomwalk);
+                    break;
+                default:
                     break;
             }
             catalog();
             choose = sc.nextInt();
             blank = sc.nextLine();
-            if (choose == 9) {
+            if (choose == overFlag) {
                 System.out.println("程序结束");
             }
         }
@@ -117,6 +130,10 @@ public class Lab1 {
     }
 
     // 生成目录
+
+    /**
+     * This is a java doc comment.
+     */
     private static void catalog() {
         System.out.println("请输入数字选择功能：");
         System.out.println("1：展示生成的有向图");

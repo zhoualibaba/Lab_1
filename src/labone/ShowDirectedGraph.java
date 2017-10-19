@@ -1,4 +1,4 @@
-package lab_1;
+package labone;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,8 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import lab_1.Digraph.ENode;
-import lab_1.Digraph.VNode;
+import labone.Digraph.ENode;
+import labone.Digraph.VNode;
 
 public class ShowDirectedGraph {
     static GraphViz gv = new GraphViz();
