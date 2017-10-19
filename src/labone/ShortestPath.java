@@ -122,19 +122,19 @@ public final class ShortestPath {
         int p1 = Digraph.getPosition(word);
         if (p1 != -1) {
             path = getPath(word);
+            StringBuilder builder = new StringBuilder();
             for (int i = 0; i < vlen; i++) {
                 if (i != p1) {
-                    result = result + word + "->" + mVexs[i].data
-                            + ": " + minlen[i] + "\n";
+                    builder.append(word).append("->").append(mVexs[i].data).append(": ").append(minlen[i]).append("\n");
                     shortpath(p1, i);
                 }
             }
+            result = builder.toString();
             ShowDirectedGraph.show("b");
 
         } else {
             result = "no " + word + " in this graph";
         }
-
         return result;
     }
 

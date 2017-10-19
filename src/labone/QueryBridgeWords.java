@@ -33,23 +33,25 @@ public final class QueryBridgeWords {
         int p1 = Digraph.getPosition(word1);
         int p2 = Digraph.getPosition(word2);
 
-        String bridge = "";
+        String bridge = null;
         if (p1 >= 0 && p2 >= 0) {
             ENode node1 = mVexs[p1].firstEdge;
             ENode node2;
+            StringBuilder builder = new StringBuilder();
             while (node1 != null) {
                 int p = node1.ivex;
                 node2 = mVexs[p].firstEdge;
                 while (node2 != null) {
                     int p3 = node2.ivex;
                     if (p3 == p2) {
-                        bridge = bridge + mVexs[p].data + " ";
+                        builder.append(mVexs[p].data).append(" ");
                         break;
                     }
                     node2 = node2.nextEdge;
                 }
                 node1 = node1.nextEdge;
             }
+            bridge = builder.toString();
         }
         return bridge;
     }
@@ -81,9 +83,11 @@ public final class QueryBridgeWords {
             } else {
                 bridge = "The bridge words from \"" + word1 + "\" to \""
                         + word2 + "\" are: ";
+                StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < bridgelist.length; i++) {
-                    bridge += bridgelist[i] + " ";
+                    builder.append(bridgelist[i]).append(" ");
                 }
+                bridge += builder.toString();
             }
         } else if (p1 < 0 && p2 < 0) {
             bridge = "No \"" + word1 + "\" and \"" + word2 + "\" in the graph!";
@@ -105,7 +109,7 @@ public final class QueryBridgeWords {
      */
     public static String[] getbridgeword(final String bridgeword) {
         final int length = 1000;
-        String[] bridges = new String[length];
+        String[] bridges;
         bridges = bridgeword.split(" ");
         return bridges;
     }

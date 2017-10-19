@@ -46,7 +46,8 @@ class Walk implements Runnable {
     /**
      * This is a java doc comment.
      */
-    int sleeptime = 1100, giveflag = 0;
+    int sleeptime = 1100;
+    int giveflag = 0;
     /**
      * This is a java doc comment.
      */

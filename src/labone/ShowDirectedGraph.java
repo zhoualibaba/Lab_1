@@ -13,10 +13,21 @@ import javax.swing.JScrollPane;
 import labone.Digraph.ENode;
 import labone.Digraph.VNode;
 
+/**
+ * Adds a newline to the graph's source.
+ */
 public class ShowDirectedGraph {
+    /**
+     * Adds a newline to the graph's source.
+     */
     static GraphViz gv = new GraphViz();
 
-    public static void showGraph(VNode mVexs[]) throws IOException {
+    /**
+     * 1.
+     * @param mVexs 1
+     * @throws IOException 1
+     */
+    public static void showGraph(final VNode[] mVexs) throws IOException {
         if (gv.empty() == 0) {
             gv.addln(gv.start_graph());
             int vlen = mVexs.length;
