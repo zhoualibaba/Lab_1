@@ -4,19 +4,7 @@ import lab_1.digraph;
 import lab_1.digraph.ENode;
 import lab_1.digraph.VNode;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// 3
-=======
-<<<<<<< HEAD
-// 2
-=======
-// 1
->>>>>>> C4
->>>>>>> B1
-=======
-// 6
->>>>>>> zas
+
 public class queryBridgeWords {
 	// �ŽӴʲ�ѯ
 	static VNode mVexs[] = digraph.mVexs;
